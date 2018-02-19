@@ -13,7 +13,7 @@ Odoo 8.0 en el base, PostgreSQL 9.5.2 y Supervisord 3.0
 En caso de no haberse hecho antes en la máquina en la que se vaya a realizar, instalar las dependencias que mar Anybox
 - Añadir el repo a /etc/apt/sources.list:
 ```
-$ deb http://apt.anybox.fr/openerp common main
+$ deb http://apt.anybox.fr/odoo common main
 ```
 - Si se quiere añadir la firma. Esta a veces tarda mucho tiempo o incluso da time out. Es opcional meterlo
 ```
@@ -22,7 +22,7 @@ $ sudo apt-key adv --keyserver hkp://subkeys.pgp.net --recv-keys 0xE38CEB07
 - Actualizar e instalar
 ```
 $ sudo apt-get update
-$ sudo apt-get install openerp-server-system-build-deps
+$ sudo apt-get install odoo-server-system-build-deps
 ```
 - Para poder compilar e instalar postgres
 ```
@@ -51,7 +51,7 @@ $ bin/buildout -c [archivo_buildout]
 - Si fuera necesario hacer update all, se puede parar desde el supervisor y en la consola hacer:
 ```
 $ cd bin
-$ ./upgrade_openerp
+$ ./upgrade_odoo
 ```
 - odoo se lanza en el puerto 9069 (se pude configurar en otro)
 
@@ -64,24 +64,24 @@ $ sudo apt-get install iptables-persistent (marcamos "yes" en las preguntas que 
 ```
 
 ## Configurar Odoo
-Archivo de configuración: etc/openerp.cfg, si sequieren cambiar opciones en  openerp.cfg, no se debe editar el fichero,
-si no añadirlas a la sección [openerp] del buildout.cfg
+Archivo de configuración: etc/odoo.cfg, si sequieren cambiar opciones en  odoo.cfg, no se debe editar el fichero,
+si no añadirlas a la sección [odoo] del buildout.cfg
 y establecer esas opciones .'add_option' = value, donde 'add_option'  y ejecutar buildout otra vez.
 
-Por ejemplo: cambiar el nivel de logging de OpenERP
+Por ejemplo: cambiar el nivel de logging de odoo
 ```
 'buildout.cfg'
 ...
-[openerp]
+[odoo]
 options.log_handler = [':ERROR']
 ...
 ```
 
-Si se quiere ejecutar más de una instancia de OpenERP, se deben cambiar los puertos,
+Si se quiere ejecutar más de una instancia de odoo, se deben cambiar los puertos,
 please change ports:
 ```
-openerp_xmlrpc_port = 9069  (8069 default openerp)
-openerp_xmlrpcs_port = 9071 (8071 default openerp)
+odoo_xmlrpc_port = 9069  (8069 default odoo)
+odoo_xmlrpcs_port = 9071 (8071 default odoo)
 supervisor_port = 9002      (9001 default supervisord)
 postgres_port = 5434        (5432 default postgres)
 ```
