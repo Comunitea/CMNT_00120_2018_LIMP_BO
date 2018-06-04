@@ -13,7 +13,7 @@ Odoo 8.0 en el base, PostgreSQL 9.5.2 y Supervisord 3.0
 En caso de no haberse hecho antes en la máquina en la que se vaya a realizar, instalar las dependencias que mar Anybox
 - Añadir el repo a /etc/apt/sources.list:
 ```
-$ deb http://apt.anybox.fr/odoo common main
+$ deb http://apt.anybox.fr/openerp common main
 ```
 - Si se quiere añadir la firma. Esta a veces tarda mucho tiempo o incluso da time out. Es opcional meterlo
 ```
@@ -22,7 +22,7 @@ $ sudo apt-key adv --keyserver hkp://subkeys.pgp.net --recv-keys 0xE38CEB07
 - Actualizar e instalar
 ```
 $ sudo apt-get update
-$ sudo apt-get install odoo-server-system-build-deps
+$ sudo apt-get install openerp-server-system-build-deps
 ```
 - Para poder compilar e instalar postgres
 ```
